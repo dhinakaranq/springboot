@@ -29,6 +29,12 @@ public class ServiceImple implements ServiceIF {
 	public List<Customer> getAllOrders() {
 		return cRepo.findAll();
 	}
+
+
+	@Override
+	public Customer getById(int id, Customer customer) {
+		return cRepo.findById(id).orElse(null);
+	}
 	
 	
 		

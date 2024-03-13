@@ -15,4 +15,6 @@ public interface ServiceIF {
 
 	List<Customer> getAllOrders();
 
+	Customer getById(int id,Customer customer);
+
 }
