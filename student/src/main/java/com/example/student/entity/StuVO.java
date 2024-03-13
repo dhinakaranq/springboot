@@ -1,4 +1,4 @@
-package com.example.spring.entity;
+package com.example.student.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,17 +9,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
+@Table(name="Studentdetails")
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="customer")
-public class Customer {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private String gender;
-	private String city;
-
+public class StuVO {
+      @Id
+      @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int Studentid;
+	private String studentcode;
+	private String studentname;
+	private String course;
+	
+	
+	
 }
