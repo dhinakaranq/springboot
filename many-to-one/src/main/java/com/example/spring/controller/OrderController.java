@@ -28,12 +28,12 @@ private  ServiceIF service;
 		return service.placeOrder(request.getCustomer());
 	}
 	
-	@GetMapping("/getall")
+	@GetMapping("/getOrderAll")
 	public List<Customer> getAllOrders(){
 		return service.getAllOrders();
 	}
 	
-	@GetMapping("/{id}/get")
+	@GetMapping("/{id}/getOrder")
 	public Customer getById(@PathVariable int id,@RequestBody Customer customer) {
 		return service.getById(id, customer);
 	}
