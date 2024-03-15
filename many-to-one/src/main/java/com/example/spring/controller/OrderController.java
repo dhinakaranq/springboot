@@ -22,11 +22,11 @@ public class OrderController {
 private  ServiceIF service;
 	
 	
-	
 	@PostMapping("/placeOrder")
 	public Customer placeOrder(@RequestBody OrderRequest request) {
-		return service.placeOrder(request.getCustomer());
+			return service.placeOrder(request.getCustomer());
 	}
+		
 	
 	@GetMapping("/getOrderAll")
 	public List<Customer> getAllOrders(){
@@ -37,5 +37,6 @@ private  ServiceIF service;
 	public Customer getById(@PathVariable int id,@RequestBody Customer customer) {
 		return service.getById(id, customer);
 	}
+	
 	
 }
