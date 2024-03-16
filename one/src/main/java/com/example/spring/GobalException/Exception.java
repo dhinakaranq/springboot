@@ -18,15 +18,12 @@ public class Exception {
 	public Map<String, String> invaildError(MethodArgumentNotValidException ex){
 		Map<String, String> errorMap=new HashMap<>();
 		ex.getBindingResult().getAllErrors().forEach(error->{
-			if (error instanceof FieldError) {
-	            FieldError fieldError = (FieldError) error;
-	            errorMap.put(fieldError.getField(), error.getDefaultMessage());
-	        } else {
-	            errorMap.put(error.getObjectName(), error.getDefaultMessage());
-	        }
-	    });
-	    return errorMap;
-	}
-	}
+			errorMap.put(error.ge, null)
+		}
+		
+		
+			
 
+
+	}
 
