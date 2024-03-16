@@ -3,6 +3,8 @@ package com.example.spring.controller;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,11 +27,10 @@ public class Controller {
  ServiceIF service;
  
  @PostMapping
- public Customer createAccount(@RequestBody Customer customer) {
-	 return service.createAccount(customer);
-	 
+ public Customer createAccount(@Valid @RequestBody Customer customer) {
+     return service.createAccount(customer);
  }
- 
+
  @GetMapping ("/get")
  public List<Customer> getAllAccounts(@RequestParam (value="address",required = false) Set<String> add,
 		                              @RequestParam (value="gender",required = false) String gen){                         
@@ -37,8 +38,9 @@ public class Controller {
  }
  @GetMapping("/{id}")
  public Customer getById(@PathVariable int id) {
-	 return service.getById(id);
-	 }
+     return service.getById(id);
+ }
+
  @PutMapping("/{id}")
  public ResponseEntity<?> updateAccount(@PathVariable int id,@RequestBody Customer customer) {
 service.updateAccount(id,customer);

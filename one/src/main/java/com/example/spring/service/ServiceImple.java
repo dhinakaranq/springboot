@@ -48,6 +48,7 @@ public class ServiceImple implements ServiceIF {
 		cust.setAddress(customer.getAddress());
 		cust.setGender(customer.getGender());
 		cust.setProduct(customer.getProduct());
+		cuRepo.save(cust);
 		return ResponseEntity.ok().body("update Successfully");
 	}
 

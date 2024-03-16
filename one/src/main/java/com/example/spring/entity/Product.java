@@ -25,6 +25,7 @@ public class Product {
 	private String name;
 	private Long price;
 	private int qty;
+	 
 	@OneToOne
 	@JsonBackReference
 	@JoinColumn(name="cus_fk")
