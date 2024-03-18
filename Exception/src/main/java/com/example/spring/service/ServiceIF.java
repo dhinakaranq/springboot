@@ -2,6 +2,7 @@ package com.example.spring.service;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.spring.dto.AccountDto;
@@ -16,5 +17,9 @@ public interface ServiceIF {
 	List<Account> getAllAccount();
 
 	Account getById(int id, AccountDto account) throws UserNotFoundException;
+
+	ResponseEntity<?> upadateAccount(int id, Account account);
+
+	ResponseEntity<?> deleteAccount(int id);
 
 }

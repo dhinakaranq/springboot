@@ -3,6 +3,7 @@ package com.example.spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.spring.dto.AccountDto;
@@ -40,4 +41,22 @@ public class AccountService implements ServiceIF {
 	
 	}
 
+	@Override
+	public ResponseEntity<?> upadateAccount(int id, Account account) {
+		Account accou=aRepo.findById(id).get();
+		accou.setName(account.getName());
+		accou.setAge(account.getAge());
+		accou.setGender(account.getGender());
+		accou.setMoblie(account.getMoblie());
+		
+		aRepo.save(accou);
+		
+		return ResponseEntity.ok().body("Update Successfully!");
+	}
+
+	@Override
+	public ResponseEntity<?> deleteAccount(int id) {
+		aRepo.deleteById(id);
+		return ResponseEntity.ok().body("Delete Succussfully!");
+	}
 }
