@@ -3,6 +3,7 @@ package com.example.spring.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -55,4 +56,12 @@ public class Controller {
 	public ResponseEntity<?>deleteAccount(@PathVariable int id){
 		return service.deleteAccount(id);
 	}
+	
+	
+	@GetMapping("/page/{offset}/{pageSize}/{field}")
+	public Page<Account> getByPaginationWithSort(@PathVariable int offset,@PathVariable int pageSize,@PathVariable String field){
+		Page<Account>account=service.getByPaginationSort(offset,pageSize,field);
+		return account;
+	}
+	
 }

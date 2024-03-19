@@ -2,6 +2,7 @@ package com.example.spring.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,7 @@ public interface ServiceIF {
 	ResponseEntity<?> upadateAccount(int id, Account account);
 
 	ResponseEntity<?> deleteAccount(int id);
+
+	Page<Account> getByPaginationSort(int offset, int pageSize, String field);
 
 }

@@ -3,6 +3,9 @@ package com.example.spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -58,5 +61,10 @@ public class AccountService implements ServiceIF {
 	public ResponseEntity<?> deleteAccount(int id) {
 		aRepo.deleteById(id);
 		return ResponseEntity.ok().body("Delete Succussfully!");
+	}
+
+	@Override
+	public Page<Account> getByPaginationSort(int offset, int pageSize, String field) {
+		return aRepo.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
 	}
 }
