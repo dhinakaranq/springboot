@@ -1,5 +1,7 @@
 package com.example.spring.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,27 +12,24 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@Entity
-@Table(name="products")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Product {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
-	private long price;
-	private int quantity;
-	
-	@ManyToOne
-    @JoinColumn(name = "cus_id")
-	private Customer customer;
+@Entity
+@Table(name="course")
+public class Course {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int courseId;
+    private String courseName;
+    private String instituteName;
+    private long fees;
+    
+    @ManyToOne
+    @JoinColumn(name="studentId")
+    @JsonBackReference
+    private Student student;
 
-	
-	
 }
